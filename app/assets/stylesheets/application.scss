@@ -1,0 +1,118 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.bookers{
+  color:white;
+  font-size:20px;
+  padding:10px 0 0;
+}
+
+body {
+ padding-top: 70px;
+}
+
+
+
+.icon-text{
+  padding-left:15px;
+  font-size:13px;
+}
+
+.btn-login{
+  background-color:#5bc0de;
+  color:#666666;
+}
+
+.btn-signup{
+  background-color:#5cb85c;
+  color:#666666;
+}
+
+.field{
+  width:152px;
+  margin-bottom:10px;
+}
+
+.btn-create{
+  background-color:#337ab7;
+  color:white;
+  margin-top:10px;
+}
+
+.btn-signup2{
+  background-color:#5cb85c;
+  color:white;
+  margin-bottom:5px;
+}
+
+.btn-login2{
+  background-color:#337ab7;
+  color:white;
+}
+
+.table{
+  border-top:none;
+}
+
+.btn-edit{
+  color:black;
+  margin-top:30px;
+}
+
+.btn-edit:hover{
+  background-color:#EEEEEE;
+}
+
+.btn-edit2{
+  background-color:#5cb85c;
+  color:white;
+}
+
+.btn-destroy{
+  background-color:#d9534f;
+  color:#666666;
+}
+
+.btn-update-user{
+  background-color:#dddddd;
+}
+
+.error_explanation{
+  color:red;
+}
+
+.table tr:hover td{
+  background-color:#EEEEEE;
+}
+
+.btn-update-book{
+  background-color:#337ab7;
+  color:white;
+  margin-top:10px;
+}
+
+.showback{
+  color:#666666;
+  margin-left:10px;
+}

@@ -1,0 +1,38 @@
+		<div class="col-xs-3">
+			<div class="userinfo">
+				<h2>User info</h2>
+				<div>
+					<%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg',fallback: "no_image_copy.jpg" %>
+				</div>
+				<table width="250">
+					<tr>
+						<td><strong>name</strong></td>
+						<td><strong><%= user.name %></strong></td>
+					</tr>
+					<tr>
+						<td><strong>introduction</strong></td>
+						<td><strong><%= user.introduction %></strong></td>
+					</tr>
+				</table>
+				<div>
+					<%= link_to(edit_user_path(user)) do %><button type="button" class="btn btn-edit btn-block active"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></button>
+					<% end %>
+				</div>
+			</div>
+			<div class="newbook">
+				<h2>New book</h2>
+				<%= form_for(book) do |f| %>
+					<div>
+						<h5>Title</h5>
+						<%= f.text_field :title, class:"form-control" %>
+					</div>
+					<div>
+						<h5>Opinion</h5>
+						<%= f.text_area :body,class:"form-control" %>
+					</div>
+					<div>
+						<%= f.submit "Create Book", class:"form-control btn btn-create btn-base-1 mt-20",rows:"3" %>
+					</div>
+					<% end %>
+			</div>
+		</div>

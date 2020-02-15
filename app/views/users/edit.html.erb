@@ -1,0 +1,37 @@
+<div class="container">
+  <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+	<div class="row">
+		<h1>User info</h1>
+		<div class="row">
+    <% if @user.errors.any? %>
+      <div class="error_explanation">
+        <h2><%= @user.errors.count %>errors prohibited this obj from being saved:</h2>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+			<%=form_for(@user) do |f|%>
+			<div class="field">
+			<%= f.label :name %>
+			<%=f.text_field :name, class:"form-control" %>
+			</div>
+			<div class="field">
+			<%= f.label :Image %>
+			<%= f.attachment_field :profile_image %>
+			</div>
+			<div class="field">
+			<%= f.label :introduction %>
+			<%= f.text_area :introduction, class:"form-control" %>
+			</div>
+			<%= f.submit "Update User",class:"btn btn-update-user  btn-base-1 mt-20" %>
+			<% end %>
+		</div>
+	</div>
