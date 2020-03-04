@@ -54,9 +54,11 @@
 					<tr>
 						<td><%= attachment_image_tag comment.user, :profile_image, :fill, 40, 40, format: 'jpeg',fallback: "no_image_copy.jpg" %><br><%= comment.user.name %></td>
 						<td><%= comment.comment %></td>
+						<% if comment.user == current_user %>
 						<td><%= link_to book_book_comment_path(@find, comment), method: :delete, "data-confirm" => "本当に消しますか？" do %>
 							<button type="button" class="btn btn-destroy active">Destroy</button>
 							<% end %>
+						<% end %>
 						</td>
 					</tr>
 					<% end %>

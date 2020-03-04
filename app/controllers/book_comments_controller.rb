@@ -7,10 +7,7 @@ class BookCommentsController < ApplicationController
     if comment.save
       redirect_to book_path(book)
     else
-      @find = Book.find(params[:id])
-      @book = Book.new
-      @book_comment = BookComment.new
-      render 'books/show'
+      redirect_back(fallback_location: root_path)
     end
   end
 
