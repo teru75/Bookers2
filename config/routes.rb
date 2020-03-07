@@ -6,6 +6,12 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :book_comments, only: [:create, :destroy]
   end
-  resources :users, only: [:index, :edit, :update, :show]
+  resources :users, only: [:index, :edit, :update, :show] do
+    member do
+      get :following, :followers
+    end
+  end
+  
+  resources :relationships, only: [:create, :destroy]
   get 'home/about' => 'homes#about'
 end
