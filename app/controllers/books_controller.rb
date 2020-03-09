@@ -16,8 +16,6 @@ end
 def index
 	@books = Book.all
 	@book = Book.new
-	@search = Book.ransack(params[:q])
-  @results = @search.result
 end
 
 def show

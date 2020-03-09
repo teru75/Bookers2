@@ -1,11 +1,13 @@
 <div class="container">
   <div class="row">
+    <% if @model =='book' %>
+    <h3>Search result</h3>
     <table class="table">
       <tr>
         <th>title</th>
         <th>Opinion</th>
       </tr>
-      <% @results.each do |book| %>
+      <% @records.each do |book| %>
       <tr>
         <td>
           <%= book.title %>
@@ -15,5 +17,23 @@
         </td>
       </tr>
       <% end %>
+    </table>
+    <% else @model == 'user' %>
+    <h3>Search result</h3>
+    <table>
+      <tr>
+        <th>image</th>
+        <th>name</th>
+      </tr>
+      <% @records.each do |user| %>
+      <tr>
+        <td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no-image-copy.jpg") %>
+        </td>
+        <td><%= user.name %></td>
+        <td><%= link_to 'Show', user, class:"user_#{user.id}" %></td>
+      </tr>
+      <% end %>
+    </table>
+    <% end %>
   </div>
 </div>

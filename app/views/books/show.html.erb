@@ -20,21 +20,7 @@
 							<% end %>
 						</td>
 						<td width="70"><%= @find.body %></td>
-						<%if @find.favorited_by?(current_user)%>
-						<td>
-							<%= link_to book_favorites_path(@find), method: :delete do %>
-							<i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
-							<%= @find.favorites.count %>
-							<% end %>
-						</td>
-						<% else %>
-						<td>
-							<%= link_to book_favorites_path(@find), method: :post do %>
-							<i class="far fa-heart" aria-hidden="true"></i>
-							<%= @find.favorites.count %>
-							<% end %>
-						</td>
-						<% end %>
+						<td><%= render 'books/favorite', book: @find %></td>
 						<td>コメント数：<%= @find.book_comments.count %></td>
 						<% if @find.user == current_user %>
 						<td>
@@ -47,28 +33,16 @@
 						</td>
 						<% end %>
 					</tr>
-					<tr>
-						<td colspan="7">コメント</td>
-					</tr>
-					<% @find.book_comments.each do |comment| %>
-					<tr>
-						<td><%= attachment_image_tag comment.user, :profile_image, :fill, 40, 40, format: 'jpeg',fallback: "no_image_copy.jpg" %><br><%= comment.user.name %></td>
-						<td><%= comment.comment %></td>
-						<% if comment.user == current_user %>
-						<td><%= link_to book_book_comment_path(@find, comment), method: :delete, "data-confirm" => "本当に消しますか？" do %>
-							<button type="button" class="btn btn-destroy active">Destroy</button>
-							<% end %>
-						<% end %>
-						</td>
-					</tr>
-					<% end %>
 				</table>
-
-				<%= form_for [@find, @book_comment] do |c| %>
-					<div class="row">
-						<%= c.text_area :comment, rows:'5', class:"form-control" %>
-					</div>
-					<%= c.submit "送信する",class: "btn btn-comment-destroy active " %>
+				<h1>コメント</h1>
+				<table id="js-table-comment" class="table">
+				<%= render 'books/comments', find: @find, book_comment: @book_comment %>
+				</table>
+				<%= form_with(model:[@find, @book_comment], remote: true) do |c| %>
+  				<div class="row">
+    				<%= c.text_area :comment, rows:'5', class:"form-control" %>
+  				</div>
+    			<%= c.submit "送信する",class: "btn btn-comment-destroy active " %>
 				<%end%>
 		</div>
 	</div>

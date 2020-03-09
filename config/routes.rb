@@ -7,12 +7,12 @@ Rails.application.routes.draw do
     resources :book_comments, only: [:create, :destroy]
   end
   resources :users, only: [:index, :edit, :update, :show] do
-    member do
-      get :following, :followers
-    end
+    resource :relationships, only: [:create, :destroy]
+    get 'follows' => 'relationships#follower', as: 'follows'
+    get 'followers' => 'relationships#followed', as: 'followers'
   end
 
-  resources :relationships, only: [:create, :destroy]
+  
   get 'search' => 'search#search'
   get 'home/about' => 'homes#about'
 
