@@ -5,6 +5,14 @@ class Book < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+
+  def self.search(search)
+    if search
+      where(['title LIKE?', "%#{search}%"])
+    else
+      all
+    end
+  end
   validates :title, presence: true
   validates :body, presence: true, length:{maximum: 199}
 end

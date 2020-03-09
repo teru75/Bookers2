@@ -11,7 +11,9 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  
+
   resources :relationships, only: [:create, :destroy]
+  get 'search' => 'search#search'
   get 'home/about' => 'homes#about'
+
 end

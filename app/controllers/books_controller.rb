@@ -15,8 +15,9 @@ end
 
 def index
 	@books = Book.all
-	puts @books.to_json
 	@book = Book.new
+	@search = Book.ransack(params[:q])
+  @results = @search.result
 end
 
 def show

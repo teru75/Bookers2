@@ -4,6 +4,14 @@
         <%= flash[:notice] %>
       </div>
     <% end %>
+    <% if user_signed_in? %>
+    	<%= search_form_for @search, url: search_path do |f| %>
+  			<%= f.label :title_cont, 'タイトル' %>
+ 				<%= f.search_field :title_cont %>
+ 				
+ 			 	<%= f.submit '検索' %>
+			<% end %>
+    <% end %>
 	<%= render 'books/error_message', book: @book %>
 	<div class="row">
 			<%= render 'books/sidebar', book: @book, user: current_user %>

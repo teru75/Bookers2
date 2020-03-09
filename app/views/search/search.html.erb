@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <table class="table">
+      <tr>
+        <th>title</th>
+        <th>Opinion</th>
+      </tr>
+      <% @results.each do |book| %>
+      <tr>
+        <td>
+          <%= book.title %>
+        </td>
+        <td>
+          <%= book.body %>
+        </td>
+      </tr>
+      <% end %>
+  </div>
+</div>
