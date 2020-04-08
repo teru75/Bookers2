@@ -64,5 +64,10 @@ gem "refile",require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
-gem 'dotenv-rails'
 gem 'font-awesome-sass', '~> 5.4.1'
+gem 'jp_prefecture'
+gem 'geocoder'
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end

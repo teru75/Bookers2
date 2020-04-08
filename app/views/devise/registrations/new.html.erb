@@ -15,6 +15,19 @@
     <span class="fa fa-user form-control-icon" aria-hidden="true"></span>
   </div>
 
+  <div class="field">
+    <p>Postal Code</p>
+    <%= f.text_field :postcode %>
+    <p>Prefecture</p>
+    <%= f.text_field :prefecture_code, collection: JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県' %><br>
+    <p>City</p>
+    <%= f.text_field :address_city %>
+    <p>Street</p>
+    <%= f.text_field :address_street %>
+    <p>Buiding Name</p>
+    <%= f.text_field :address_building %>
+    <%= f.submit %>
+  </div>
 
   <div class="field">
     <label for="user_password">Password</label><em>(6 characters minimum)</em>

@@ -1,2 +1,2 @@
-$('#js-table-comment').pretend("<%= j(render 'books/comments', find: @find, book_comment: @book_comment) %>")
+$('#js-table-comment').prepend("<%= j(render 'books/comments', find: @find, book_comment: @book_comment) %>")
 $('#comment_body').val('')
